@@ -1,5 +1,6 @@
 "use client";
 
+import { Suspense } from "react";
 import { motion } from "motion/react";
 import { NavigationProvider, useNavigation } from "@/lib/navigation-context";
 
@@ -52,7 +53,9 @@ function HomeContent() {
 export default function Home() {
   return (
     <NavigationProvider>
-      <HomeContent />
+      <Suspense fallback={null}>
+        <HomeContent />
+      </Suspense>
     </NavigationProvider>
   );
 }
