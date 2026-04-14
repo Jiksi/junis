@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Navigation from "./navigation";
-import { useNavigation } from "@/app/lib/navigation-context";
+import { useNavigation } from "@/lib/navigation-context";
 
 export default function Gift() {
   const { setActiveSection } = useNavigation();

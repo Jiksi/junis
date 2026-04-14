@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
-import { useNavigation } from "@/app/lib/navigation-context";
+import { useNavigation } from "@/lib/navigation-context";
 
 export default function Welcome() {
   const to = useSearchParams().get("to");

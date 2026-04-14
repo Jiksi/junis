@@ -1,10 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import {
-  NavigationProvider,
-  useNavigation,
-} from "@/app/lib/navigation-context";
+import { NavigationProvider, useNavigation } from "@/lib/navigation-context";
 
 import Acara from "@/components/acara";
 import Gift from "@/components/gift";

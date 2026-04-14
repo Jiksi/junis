@@ -1,4 +1,4 @@
-import { useNavigation } from "@/app/lib/navigation-context";
+import { useNavigation } from "@/lib/navigation-context";
 import Image from "next/image";
 
 const navigationItems = [
