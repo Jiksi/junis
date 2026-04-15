@@ -21,8 +21,16 @@ const luxuriousScript = Luxurious_Script({
 
 export const metadata: Metadata = {
   title: "The Wedding of Inung & Akmal",
-  description:
-    "The wedding of Inung & Akmal, a celebration of love and unity. Join us as we embark on this beautiful journey together.",
+  icons: {
+    icon: [
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
+  manifest: "/site.webmanifest",
 };
 
 export default function RootLayout({
