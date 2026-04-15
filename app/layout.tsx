@@ -35,9 +35,7 @@ export default function RootLayout({
       lang="en"
       className={`${belleza.variable} ${gelasio.variable} ${luxuriousScript.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col overflow-hidden">
-        {children}
-      </body>
+      <body className="flex min-h-full flex-col">{children}</body>
     </html>
   );
 }
