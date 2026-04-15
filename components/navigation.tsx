@@ -1,3 +1,4 @@
+import { Section } from "@/lib/definitions";
 import { useNavigation } from "@/lib/navigation-context";
 import Image from "next/image";
 
@@ -25,7 +26,7 @@ export default function Navigation({ navy = false }: { navy?: boolean }) {
               ? "opacity-50"
               : "opacity-100"
           }`}
-          onClick={() => setActiveSection(item.sectionId)}
+          onClick={() => setActiveSection(item.sectionId as Section)}
         >
           <Image
             src={navy ? "/svg/icon-navy.svg" : "/svg/icon-white.svg"}
