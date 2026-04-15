@@ -8,6 +8,13 @@ import { AnimatePresence, motion } from "motion/react";
 export default function Gift() {
   const { setActiveSection } = useNavigation();
   const [visible, setVisible] = useState(false);
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText("12345678901213");
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   return (
     <section
@@ -16,11 +23,17 @@ export default function Gift() {
     >
       <Flower />
       <div className="flex h-full flex-col items-center gap-4 py-4">
-        <h2 className="font-heading w-xs text-center text-base leading-5 text-balance">
+        <motion.h2
+          className="font-heading w-xs text-center text-base leading-5 text-balance"
+          initial={{ opacity: 0, filter: "blur(4px)" }}
+          whileInView={{ opacity: 1, filter: "blur(0px)" }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
+        >
           Doa Restu Anda merupakan karunia yang sangat berarti bagi kami. Dan
           jika memberi adalah ungkapan tanda kasih Anda, Anda dapat memberi kado
           secara cashless.
-        </h2>
+        </motion.h2>
         <button
           className="bg-primary text-secondary font-heading flex items-center gap-2 rounded-md border-2 px-4 py-2 text-sm focus:ring-2 focus:ring-offset-2 focus:outline-none"
           onClick={() => setVisible(!visible)}
@@ -38,13 +51,12 @@ export default function Gift() {
         <AnimatePresence initial={false}>
           {visible ? (
             <motion.div
-              initial={{ opacity: 0, scaleY: 0, originY: 0 }}
+              initial={{ opacity: 0, y: -5 }}
               animate={{
                 opacity: 1,
-                scaleY: 1,
-                originY: 0,
+                y: 0,
               }}
-              exit={{ opacity: 0, scaleY: 0, originY: 0 }}
+              exit={{ opacity: 0, y: -5 }}
               key="box"
               className="border-primary text-primary font-heading relative w-sm rounded-md border bg-white p-4 text-xs"
             >
@@ -61,16 +73,40 @@ export default function Gift() {
                   <h2>12345678901213 a.n</h2>
                   <h2>Noor Hijriyati Shofiana</h2>
                 </div>
-                <button className="bg-primary text-secondary font-heading flex items-center gap-2 rounded-md border-2 px-3 py-1 text-xs focus:ring-2 focus:ring-offset-2 focus:outline-none">
-                  <Image
-                    src="/svg/copy.svg"
-                    alt="Copy"
-                    className="size-4"
-                    width={24}
-                    height={24}
-                    loading="eager"
-                  />
-                  Copy
+                <button
+                  className="bg-primary text-secondary font-heading flex min-w-20 items-center justify-center gap-2 rounded-md border-2 px-3 py-1 text-xs focus:ring-2 focus:ring-offset-2 focus:outline-none"
+                  onClick={handleCopy}
+                >
+                  <AnimatePresence mode="wait">
+                    {copied ? (
+                      <motion.span
+                        key="copied"
+                        initial={{ opacity: 0, y: -5 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 5 }}
+                      >
+                        Copied!
+                      </motion.span>
+                    ) : (
+                      <motion.div
+                        key="copy"
+                        initial={{ opacity: 0, y: -5 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 5 }}
+                        className="flex items-center gap-2"
+                      >
+                        <Image
+                          src="/svg/copy.svg"
+                          alt="Copy"
+                          className="size-4"
+                          width={24}
+                          height={24}
+                          loading="eager"
+                        />
+                        Copy
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </button>
               </div>
               <div className="border-primary w-full border-t"></div>
