@@ -8,15 +8,23 @@ const navigationItems = [
   { name: "Kado", sectionId: "gift" },
 ];
 
+const navSectionIds = navigationItems.map((item) => item.sectionId);
+
 export default function Navigation({ navy = false }: { navy?: boolean }) {
   const { activeSection, setActiveSection } = useNavigation();
+
+  const isNavActive = navSectionIds.includes(activeSection);
 
   return (
     <div className="flex items-center justify-between gap-10">
       {navigationItems.map((item, index) => (
         <button
           key={index}
-          className={`flex flex-col items-center justify-center gap-3 hover:cursor-pointer ${activeSection === item.sectionId ? "opacity-100" : "opacity-50"}`}
+          className={`flex flex-col items-center justify-center gap-3 hover:cursor-pointer ${
+            isNavActive && activeSection !== item.sectionId
+              ? "opacity-50"
+              : "opacity-100"
+          }`}
           onClick={() => setActiveSection(item.sectionId)}
         >
           <Image

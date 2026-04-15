@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Flower from "./flower";
 
 export default function Penutup() {
   return (
@@ -6,14 +7,7 @@ export default function Penutup() {
       id="penutup"
       className="bg-primary text-secondary flex h-full min-h-svh flex-col items-center justify-between py-14"
     >
-      <Image
-        src="/svg/sunflower.svg"
-        alt="Flower"
-        className="h-24 w-fit"
-        width={100}
-        height={100}
-        loading="eager"
-      />
+      <Flower />
       <h2 className="font-heading text-accent text-center tracking-widest uppercase">
         The Wedding of
       </h2>

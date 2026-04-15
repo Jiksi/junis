@@ -1,5 +1,5 @@
-import Image from "next/image";
 import Navigation from "./navigation";
+import Flower from "./flower";
 
 export default function Mempelai() {
   return (
@@ -7,14 +7,7 @@ export default function Mempelai() {
       id="mempelai"
       className="bg-secondary text-primary flex h-full min-h-svh flex-col items-center justify-between py-14"
     >
-      <Image
-        src="/svg/sunflower.svg"
-        alt="Flower"
-        className="h-24 w-fit"
-        width={100}
-        height={100}
-        loading="eager"
-      />
+      <Flower />
       <div className="flex flex-col items-center justify-center gap-4">
         <div className="w-3/4 pt-4">
           <h2 className="font-body text-center text-xl leading-8 tracking-widest text-balance uppercase">

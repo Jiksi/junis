@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Navigation from "./navigation";
 import { useNavigation } from "@/lib/navigation-context";
+import Flower from "./flower";
 
 export default function Gift() {
   const { setActiveSection } = useNavigation();
@@ -9,14 +10,7 @@ export default function Gift() {
       id="gift"
       className="bg-secondary text-primary flex h-full min-h-svh flex-col items-center justify-between py-14"
     >
-      <Image
-        src="/svg/sunflower.svg"
-        alt="Flower"
-        className="h-24 w-fit"
-        width={100}
-        height={100}
-        loading="eager"
-      />
+      <Flower />
       <div className="flex h-full flex-col items-center gap-4 py-4">
         <h2 className="font-heading w-xs text-center text-base leading-5 text-balance">
           Doa Restu Anda merupakan karunia yang sangat berarti bagi kami. Dan

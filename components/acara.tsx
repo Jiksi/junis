@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Navigation from "./navigation";
+import Flower from "./flower";
 
 export default function Acara() {
   return (
@@ -7,14 +8,7 @@ export default function Acara() {
       id="acara"
       className="bg-secondary text-primary flex h-full min-h-svh flex-col items-center justify-between py-14 text-center"
     >
-      <Image
-        src="/svg/sunflower.svg"
-        alt="Flower"
-        className="h-24 w-fit"
-        width={100}
-        height={100}
-        loading="eager"
-      />
+      <Flower />
       <h2 className="font-body w-3/4 text-center text-3xl">
         Sabtu, 4 Juli 2026
       </h2>
