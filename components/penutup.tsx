@@ -23,22 +23,34 @@ export default function Penutup() {
         loading="eager"
       />
       <div className="relative">
-        <Image
-          src="/svg/spotify.svg"
-          alt="Spotify"
-          className="h-8 w-fit"
-          width={210}
-          height={32}
-          loading="eager"
-        />
-        <Image
-          src="/svg/listen.svg"
-          alt="Spotify"
-          className="absolute -right-10 bottom-10 h-7 w-fit"
-          width={80}
-          height={28}
-          loading="eager"
-        />
+        <a
+          href="https://open.spotify.com/playlist/0O69HPyn69q881btD9K6Kx?si=yeSi2rHsQCOVugw5yVqosw&pi=fd6u44fHTr2sb&nd=1&dlsi=2ffa21d5f9084e11"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Image
+            src="/svg/spotify.svg"
+            alt="Spotify"
+            className="h-8 w-fit"
+            width={210}
+            height={32}
+            loading="eager"
+          />
+        </a>
+        <a
+          href="https://open.spotify.com/playlist/0O69HPyn69q881btD9K6Kx?si=yeSi2rHsQCOVugw5yVqosw&pi=fd6u44fHTr2sb&nd=1&dlsi=2ffa21d5f9084e11"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Image
+            src="/svg/listen.svg"
+            alt="Spotify"
+            className="absolute -right-10 bottom-10 h-7 w-fit"
+            width={80}
+            height={28}
+            loading="eager"
+          />
+        </a>
       </div>
       <p className="font-heading text-base">Junis, 2026</p>
     </section>
