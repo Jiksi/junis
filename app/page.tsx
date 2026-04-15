@@ -40,7 +40,7 @@ function HomeContent() {
             style={{ zIndex }}
             initial={false}
             animate={{ y: isRevealed ? "-100%" : "0%" }}
-            transition={{ duration: 0.8, ease: [0.32, 0.72, 0, 1] }}
+            transition={{ duration: 1.2, ease: [0.32, 0.72, 0, 1] }}
           >
             <Component />
           </motion.div>
