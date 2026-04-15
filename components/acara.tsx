@@ -9,7 +9,7 @@ export default function Acara() {
       className="bg-secondary text-primary flex h-full min-h-svh flex-col items-center justify-between py-14 text-center"
     >
       <Flower />
-      <h2 className="font-body w-3/4 text-center text-3xl">
+      <h2 className="font-body w-sm text-center text-3xl">
         Sabtu, 4 Juli 2026
       </h2>
       <div className="border-primary w-xs border-t"></div>
