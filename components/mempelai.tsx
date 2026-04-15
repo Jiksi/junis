@@ -9,7 +9,7 @@ export default function Mempelai() {
     >
       <Flower />
       <div className="flex flex-col items-center justify-center gap-4">
-        <div className="w-3/4 pt-4">
+        <div className="w-sm pt-4">
           <h2 className="font-body text-center text-xl leading-8 tracking-widest text-balance uppercase">
             Noor Hijriyati Shofiana
           </h2>
