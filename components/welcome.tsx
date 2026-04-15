@@ -13,7 +13,13 @@ export default function Welcome() {
       id="welcome"
       className="bg-primary text-secondary flex h-full min-h-svh flex-col items-center justify-between py-14"
     >
-      <Flower />
+      <motion.div
+        initial={{ opacity: 0, filter: "blur(4px)" }}
+        animate={{ opacity: 1, filter: "blur(0px)" }}
+        transition={{ duration: 1.2, ease: "easeOut" }}
+      >
+        <Flower />
+      </motion.div>
       <motion.h2
         className="font-heading text-accent text-center tracking-widest uppercase"
         initial={{ opacity: 0, filter: "blur(4px)" }}
