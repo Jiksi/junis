@@ -1,10 +1,11 @@
 "use client";
 
 import { createContext, useContext, useState, ReactNode } from "react";
+import { Section } from "./definitions";
 
 interface NavigationContextType {
-  activeSection: string;
-  setActiveSection: (section: string) => void;
+  activeSection: Section;
+  setActiveSection: (section: Section) => void;
 }
 
 const NavigationContext = createContext<NavigationContextType | undefined>(
@@ -12,7 +13,7 @@ const NavigationContext = createContext<NavigationContextType | undefined>(
 );
 
 export const NavigationProvider = ({ children }: { children: ReactNode }) => {
-  const [activeSection, setActiveSection] = useState("welcome");
+  const [activeSection, setActiveSection] = useState<Section>("welcome");
 
   return (
     <NavigationContext.Provider value={{ activeSection, setActiveSection }}>
