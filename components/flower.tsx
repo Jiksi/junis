@@ -9,7 +9,7 @@ export default function Flower() {
       <Image
         src="/svg/sunflower.svg"
         alt="Flower"
-        className="h-24 w-fit"
+        className="h-20 w-fit"
         width={100}
         height={100}
         loading="eager"
