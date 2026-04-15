@@ -34,28 +34,40 @@ export default function Acara() {
         </p>
       </div>
       <div className="flex items-center justify-between gap-4">
-        <button className="bg-primary font-heading text-secondary flex items-center justify-between gap-2 rounded-md p-2 text-sm tracking-wide">
-          <Image
-            src="/svg/maps.svg"
-            alt="Google Maps"
-            className="size-5"
-            width={24}
-            height={24}
-            loading="eager"
-          />
-          Google Maps
-        </button>
-        <button className="bg-primary font-heading text-secondary flex items-center justify-between gap-2 rounded-md p-2 text-sm tracking-wide">
-          <Image
-            src="/svg/calendar.svg"
-            alt="Add to Calendar"
-            className="size-5"
-            width={24}
-            height={24}
-            loading="eager"
-          />
-          Add to Calendar
-        </button>
+        <a
+          href="https://www.google.com/maps/place/Hotel+Royal+Suite/@-1.254371,116.9002063,17z/data=!3m1!4b1!4m9!3m8!1s0x2df1442d1b88ad03:0x869ddea7875ad533!5m2!4m1!1i2!8m2!3d-1.254371!4d116.9002063!16s%2Fg%2F11c5_2p5fj!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDQxMy4wIKXMDSoASAFQAw%3D%3D"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <button className="bg-primary font-heading hover:bg-primary/80 text-secondary flex items-center justify-between gap-2 rounded-md p-2 text-sm tracking-wide">
+            <Image
+              src="/svg/maps.svg"
+              alt="Google Maps"
+              className="size-5"
+              width={24}
+              height={24}
+              loading="eager"
+            />
+            Google Maps
+          </button>
+        </a>
+        <a
+          href="https://calendar.google.com/calendar/u/0/r/eventedit?&dates=20260704T100000/20260704T150000&ctz=Asia/Makassar&text=Wedding+of+Inung+%26+Akmal&location=Royal+Suite+Hotel+Balikpapan,+Jl.+Syarifuddin+Yoes,+Sepinggan,+Kecamatan+Balikpapan+Selatan,+Kota+Balikpapan,+Kalimantan+Timur+76115,+Indonesia&crm=AVAILABLE&trp=false&pli=1"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <button className="bg-primary font-heading hover:bg-primary/80 text-secondary flex items-center justify-between gap-2 rounded-md p-2 text-sm tracking-wide">
+            <Image
+              src="/svg/calendar.svg"
+              alt="Add to Calendar"
+              className="size-5"
+              width={24}
+              height={24}
+              loading="eager"
+            />
+            Add to Calendar
+          </button>
+        </a>
       </div>
       <Navigation navy />
     </section>
