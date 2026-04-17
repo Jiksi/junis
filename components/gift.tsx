@@ -58,7 +58,7 @@ export default function Gift() {
               }}
               exit={{ opacity: 0, y: -5 }}
               key="box"
-              className="border-primary text-primary font-heading relative w-sm rounded-md border bg-white p-4 text-xs"
+              className="border-primary text-primary font-heading relative w-xs rounded-md border bg-white p-4 text-xs"
             >
               <Image
                 src="/svg/mandiri.svg"
