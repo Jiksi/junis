@@ -459,7 +459,7 @@ export default function Invite() {
                                         setTemplateMessage(e.target.value)
                                     }
                                     readOnly={currentPreset !== 'Custom'}
-                                    className="min-h-50 font-sans text-sm"
+                                    className="h-50 font-sans text-sm"
                                 />
                             </div>
 
@@ -499,7 +499,7 @@ export default function Invite() {
                                         generatedUrl ||
                                             'https://link-undangan.com/?to=NamaTamu',
                                     )}
-                                    className="min-h-37.5 bg-gray-50 text-sm"
+                                    className="h-50 bg-gray-50 text-sm"
                                 />
                             </div>
                         </div>
