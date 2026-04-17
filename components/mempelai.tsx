@@ -1,5 +1,6 @@
 import Navigation from "./navigation";
 import Flower from "./flower";
+import Image from "next/image";
 
 export default function Mempelai() {
   return (
@@ -10,12 +11,16 @@ export default function Mempelai() {
       <Flower />
       <div className="flex flex-col items-center justify-center gap-4">
         <div className="w-sm pt-4">
-          <h2 className="font-body text-center text-xl leading-8 tracking-widest text-balance uppercase">
-            Noor Hijriyati Shofiana
-          </h2>
-          <h2 className="font-code -translate-y-4 text-center text-4xl tracking-wider">
-            H Rasyid
-          </h2>
+          <div className="pb-6">
+            <Image
+              src="/svg/wanita.svg"
+              alt="Noor Hijriyati Shofiana Al Rasyid"
+              className="h-14 w-fit"
+              width={348}
+              height={52}
+              loading="eager"
+            />
+          </div>
           <p className="font-heading -translate-y-4 text-center text-xs">
             Putri dari Bapak Ir. Jamal Al Rasyid, MM
             <br />
@@ -23,13 +28,17 @@ export default function Mempelai() {
           </p>
         </div>
         <span className="font-heading text-6xl">&</span>
-        <div className="w-3/4 pt-4">
-          <h2 className="font-body text-center text-xl leading-8 tracking-widest text-balance uppercase">
-            An Nahl Akmal
-          </h2>
-          <h2 className="font-code -translate-y-4 text-center text-4xl tracking-wider">
-            Hakim
-          </h2>
+        <div className="w-sm pt-4">
+          <div className="flex w-full items-center justify-center pb-6">
+            <Image
+              src="/svg/pria.svg"
+              alt="An Nahl Akmal Hakim"
+              className="h-14 w-fit"
+              width={348}
+              height={52}
+              loading="eager"
+            />
+          </div>
           <p className="font-heading -translate-y-4 text-center text-xs">
             Putra dari Bapak Fahrianoor Rullah Hakim
             <br />
