@@ -3,6 +3,7 @@ import { useSearchParams } from "next/navigation";
 import { useNavigation } from "@/lib/navigation-context";
 import Flower from "./flower";
 import { motion } from "motion/react";
+import Hero from "./hero";
 
 export default function Welcome() {
   const to = useSearchParams().get("to");
@@ -33,14 +34,7 @@ export default function Welcome() {
         animate={{ opacity: 1, filter: "blur(0px)" }}
         transition={{ duration: 1.2, ease: "easeOut" }}
       >
-        <Image
-          src="/svg/inung-akmal.svg"
-          alt="Hero"
-          className="h-44 w-fit"
-          width={200}
-          height={300}
-          loading="eager"
-        />
+        <Hero />
       </motion.div>
       <motion.div
         initial={{ opacity: 0, filter: "blur(4px)" }}

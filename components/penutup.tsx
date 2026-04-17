@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Flower from "./flower";
-import { motion } from "motion/react";
+import Hero from "./hero";
 
 export default function Penutup() {
   return (
@@ -14,14 +14,7 @@ export default function Penutup() {
         Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan do&rsquo;a restu
         bagi kedua mempelai.
       </h2>
-      <Image
-        src="/svg/inung-akmal.svg"
-        alt="Hero"
-        className="h-44 w-fit"
-        width={200}
-        height={300}
-        loading="eager"
-      />
+      <Hero />
       <div className="relative">
         <a
           href="https://open.spotify.com/playlist/0O69HPyn69q881btD9K6Kx?si=yeSi2rHsQCOVugw5yVqosw&pi=fd6u44fHTr2sb&nd=1&dlsi=2ffa21d5f9084e11"
@@ -52,7 +45,7 @@ export default function Penutup() {
           />
         </a>
       </div>
-      <p className="font-heading text-base">Junis, 2026</p>
+      <p className="font-heading text-base">Junis. 2026</p>
     </section>
   );
 }
