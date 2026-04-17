@@ -17,7 +17,7 @@ export default function Navigation({ navy = false }: { navy?: boolean }) {
   const isNavActive = navSectionIds.includes(activeSection);
 
   return (
-    <div className="flex items-center justify-between gap-10">
+    <div className="flex w-xs items-center justify-between">
       {navigationItems.map((item, index) => (
         <button
           key={index}
