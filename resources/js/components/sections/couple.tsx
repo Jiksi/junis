@@ -15,7 +15,7 @@ export default function Couple() {
                             loading="eager"
                         />
                     </div>
-                    <p className="font-heading -translate-y-4 text-center text-xs">
+                    <p className="-translate-y-4 text-center font-gelasio text-xs">
                         Putri dari Bapak Ir. Jamal Al Rasyid, MM
                         <br />
                         dan Ibu dr. Syafa&rsquo;ah H. Maksum, M.Kes
@@ -31,7 +31,7 @@ export default function Couple() {
                             loading="eager"
                         />
                     </div>
-                    <p className="font-heading -translate-y-4 text-center text-xs">
+                    <p className="-translate-y-4 text-center font-gelasio text-xs">
                         Putra dari Bapak Fahrianoor Rullah Hakim
                         <br />
                         dan Ibu Amalia Feritawati
