@@ -17,7 +17,7 @@ export default function Opening() {
                 <Flower />
             </motion.div>
             <motion.h2
-                className="text-center font-belleza tracking-widest text-sky uppercase"
+                className="text-center font-belleza text-xl tracking-widest text-sky uppercase"
                 initial={{ opacity: 0, filter: 'blur(4px)' }}
                 animate={{ opacity: 1, filter: 'blur(0px)' }}
                 transition={{ duration: 1.2, ease: 'easeOut' }}
@@ -36,14 +36,14 @@ export default function Opening() {
                 animate={{ opacity: 1, filter: 'blur(0px)' }}
                 transition={{ duration: 1.2, ease: 'easeOut' }}
             >
-                <p className="text-center font-belleza text-sm">Kepada yth</p>
-                <p className="text-center font-belleza text-2xl">
+                <p className="text-center font-belleza text-lg">Kepada yth</p>
+                <p className="text-center font-belleza text-3xl">
                     {to || 'Tamu Undangan'}
                 </p>
             </motion.div>
             <motion.button
                 onClick={() => setSection('intro')}
-                className="cursor-pointer font-belleza text-sky"
+                className="cursor-pointer font-belleza text-xl text-sky"
                 initial={{ opacity: 0, filter: 'blur(4px)' }}
                 animate={{ opacity: 1, filter: 'blur(0px)' }}
                 transition={{ duration: 1.2, ease: 'easeOut' }}

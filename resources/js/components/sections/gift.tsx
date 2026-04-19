@@ -16,12 +16,9 @@ export default function Gift() {
     };
 
     return (
-        <section
-            id="gift"
-            className="flex h-full flex-col items-center justify-between bg-peach text-navy"
-        >
+        <section className="flex h-full flex-col items-center justify-between bg-peach text-navy">
             <Flower />
-            <div className="flex h-full flex-col items-center gap-4 py-4">
+            <div className="flex h-full flex-col items-center gap-4 py-10">
                 <motion.h2
                     className="w-xs text-center font-belleza text-base leading-5 text-balance"
                     initial={{ opacity: 0, filter: 'blur(4px)' }}

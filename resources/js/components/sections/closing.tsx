@@ -8,7 +8,7 @@ export default function Closing() {
             className="flex h-full flex-col items-center justify-between bg-navy text-peach"
         >
             <Flower />
-            <h2 className="text-center font-belleza text-base leading-5 tracking-wide text-balance text-peach">
+            <h2 className="max-w-xs text-center font-belleza text-base leading-5 tracking-wide text-balance text-peach">
                 Merupakan suatu kehormatan dan kebahagiaan bagi kami, apabila
                 Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan do&rsquo;a
                 restu bagi kedua mempelai.
