@@ -10,7 +10,7 @@ export default function Gift() {
     const [copied, setCopied] = useState(false);
 
     const handleCopy = () => {
-        navigator.clipboard.writeText('12345678901213');
+        navigator.clipboard.writeText('9000039657375');
         setCopied(true);
         setTimeout(() => setCopied(false), 2000);
     };
@@ -19,19 +19,13 @@ export default function Gift() {
         <section className="flex h-full flex-col items-center justify-between bg-peach text-navy">
             <Flower />
             <div className="flex h-full flex-col items-center gap-4 py-10">
-                <motion.h2
-                    className="w-xs text-center font-belleza text-base leading-5 text-balance"
-                    initial={{ opacity: 0, filter: 'blur(4px)' }}
-                    whileInView={{ opacity: 1, filter: 'blur(0px)' }}
-                    viewport={{ once: true, amount: 0.2 }}
-                    transition={{ duration: 1.2, ease: 'easeOut' }}
-                >
+                <h2 className="w-xs text-center font-belleza text-base leading-5 text-balance">
                     Doa Restu Anda merupakan karunia yang sangat berarti bagi
                     kami. Dan jika memberi adalah ungkapan tanda kasih Anda,
                     Anda dapat memberi kado secara cashless.
-                </motion.h2>
+                </h2>
                 <button
-                    className="flex items-center gap-2 rounded-md border-2 bg-navy px-4 py-2 font-belleza text-sm text-peach focus:ring-2 focus:ring-offset-2 focus:outline-none"
+                    className="flex items-center gap-2 rounded-md bg-navy px-4 py-2 font-belleza text-sm text-peach focus:ring-2 focus:ring-offset-2 focus:outline-none"
                     onClick={() => setVisible(!visible)}
                 >
                     <img
@@ -62,7 +56,7 @@ export default function Gift() {
                             />
                             <div className="flex items-center justify-between py-2">
                                 <div>
-                                    <h2>12345678901213 a.n</h2>
+                                    <h2>9000039657375 a.n</h2>
                                     <h2>Noor Hijriyati Shofiana</h2>
                                 </div>
                                 <button

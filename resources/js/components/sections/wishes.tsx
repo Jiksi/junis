@@ -18,16 +18,16 @@ export default function Wishes() {
                         type="text"
                         placeholder="Nama"
                         defaultValue={to || ''}
-                        className="w-xs rounded-md border-2 bg-white p-2 font-belleza text-xs text-navy placeholder:font-belleza placeholder:text-xs placeholder:text-navy/20 focus:ring-2 focus:ring-peach focus:ring-offset-2 focus:outline-none"
+                        className="w-xs rounded-md bg-white p-2 font-belleza text-xs text-navy placeholder:font-belleza placeholder:text-xs placeholder:text-navy/20 focus:ring-2 focus:ring-peach focus:ring-offset-2 focus:outline-none"
                     />
                     <textarea
                         name="ucapan"
                         id="ucapan"
                         placeholder="Ucapan..."
-                        className="h-20 w-xs rounded-md border-2 bg-white p-2 font-belleza text-xs text-navy placeholder:font-belleza placeholder:text-xs placeholder:text-navy/20 focus:ring-2 focus:ring-peach focus:ring-offset-2 focus:outline-none"
+                        className="h-20 w-xs rounded-md bg-white p-2 font-belleza text-xs text-navy placeholder:font-belleza placeholder:text-xs placeholder:text-navy/20 focus:ring-2 focus:ring-peach focus:ring-offset-2 focus:outline-none"
                     />
                 </div>
-                <button className="rounded-md border-2 bg-peach px-4 py-2 font-belleza text-sm text-navy hover:bg-peach/80 focus:ring-2 focus:ring-peach focus:ring-offset-2 focus:outline-none">
+                <button className="rounded-md bg-peach px-4 py-2 font-belleza text-sm text-navy hover:bg-peach/80 focus:ring-2 focus:ring-peach focus:ring-offset-2 focus:outline-none">
                     Kirim Ucapan
                 </button>
             </div>
