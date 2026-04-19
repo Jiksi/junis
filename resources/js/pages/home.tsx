@@ -1,4 +1,5 @@
 import { AnimatePresence, motion } from 'motion/react';
+
 import Closing from '@/components/sections/closing';
 import Couple from '@/components/sections/couple';
 import Event from '@/components/sections/event';
@@ -6,10 +7,12 @@ import Gift from '@/components/sections/gift';
 import Intro from '@/components/sections/intro';
 import Opening from '@/components/sections/opening';
 import Wishes from '@/components/sections/wishes';
+
 import {
     NavigationProvider,
     useNavigation,
 } from '@/contexts/navigation-context';
+
 import type { Section } from '@/types';
 
 function HomeContent() {
@@ -26,13 +29,13 @@ function HomeContent() {
     };
 
     return (
-        <main className="overflow-hidden *:*:h-dvh *:*:py-14">
+        <main className="relative overflow-hidden *:*:h-dvh *:*:py-14">
             <AnimatePresence mode="popLayout">
                 <motion.div
                     key={section}
-                    initial={{ x: 300, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    exit={{ x: -300, opacity: 0 }}
+                    exit={{ y: '-100%', zIndex: 10 }}
+                    transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
+                    className="relative h-full w-full"
                 >
                     {content[section]}
                 </motion.div>
