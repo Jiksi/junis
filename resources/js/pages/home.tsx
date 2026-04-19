@@ -34,7 +34,7 @@ function HomeContent() {
                 <motion.div
                     key={section}
                     exit={{ y: '-100%', zIndex: 10 }}
-                    transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
+                    transition={{ duration: 0.9, ease: [0.4, 0, 0.2, 1] }}
                     className="relative h-full w-full"
                 >
                     {content[section]}
