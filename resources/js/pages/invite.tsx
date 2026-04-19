@@ -1,6 +1,6 @@
 import { Head, router } from '@inertiajs/react';
 import { Copy, ExternalLink, Send, Share2 } from 'lucide-react';
-import { useState, useRef } from 'react';
+import { useState, useRef, useCallback, useMemo } from 'react';
 import { toast } from 'sonner';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -183,6 +183,16 @@ Kami yang berbahagia,
 
 type PresetKey = keyof typeof PRESETS | 'Custom';
 
+const renderMessage = (text: string, name: string, url: string) => {
+    const guestPlaceholder = name.trim() || 'Tamu Undangan';
+
+    return text
+        .replaceAll('[tamu]', guestPlaceholder)
+        .replaceAll('[mempelai_1]', MEMPELAI_1)
+        .replaceAll('[mempelai_2]', MEMPELAI_2)
+        .replaceAll('[link]', url);
+};
+
 export default function Invite() {
     const [guestName, setGuestName] = useState('');
     const [isGenerated, setIsGenerated] = useState(false);
@@ -194,7 +204,15 @@ export default function Invite() {
 
     const textareaRef = useRef<HTMLTextAreaElement>(null);
 
-    const handleGenerate = () => {
+    const previewMessage = useMemo(() => {
+        return renderMessage(
+            templateMessage,
+            guestName,
+            generatedUrl || 'https://link-undangan.com/?to=NamaTamu',
+        );
+    }, [templateMessage, guestName, generatedUrl]);
+
+    const handleGenerate = useCallback(() => {
         if (!guestName.trim()) {
             toast.error('Masukkan nama tamu terlebih dahulu');
 
@@ -205,38 +223,28 @@ export default function Invite() {
         const url = `${window.location.origin}/?to=${encodedName}`;
         setGeneratedUrl(url);
         setIsGenerated(true);
-    };
+    }, [guestName]);
 
-    const handleCopy = () => {
+    const handleCopy = useCallback(() => {
         navigator.clipboard.writeText(generatedUrl);
         toast.success('Link berhasil disalin');
-    };
+    }, [generatedUrl]);
 
-    const handleTestLink = () => {
+    const handleTestLink = useCallback(() => {
         window.open(generatedUrl, '_blank');
-    };
+    }, [generatedUrl]);
 
-    const renderMessage = (text: string, name: string, url: string) => {
-        const guestPlaceholder = name.trim() || 'Bapak/Ibu/Saudara/i';
-
-        return text
-            .replaceAll('[tamu]', guestPlaceholder)
-            .replaceAll('[mempelai_1]', MEMPELAI_1)
-            .replaceAll('[mempelai_2]', MEMPELAI_2)
-            .replaceAll('[link]', url);
-    };
-
-    const handleSendWA = () => {
+    const handleSendWA = useCallback(() => {
         const fullMessage = renderMessage(
             templateMessage,
             guestName,
             generatedUrl,
         );
-        const base64Message = btoa(unescape(encodeURIComponent(fullMessage)));
+        const base64Message = btoa(encodeURIComponent(fullMessage));
         router.visit(`/wa?b=${base64Message}`);
-    };
+    }, [templateMessage, guestName, generatedUrl]);
 
-    const handleShare = async () => {
+    const handleShare = useCallback(async () => {
         if (navigator.share) {
             try {
                 await navigator.share({
@@ -250,56 +258,62 @@ export default function Invite() {
         } else {
             toast.error('Web Share API tidak didukung di browser ini');
         }
-    };
+    }, [guestName, generatedUrl]);
 
-    const insertVariable = (variable: string) => {
-        if (currentPreset !== 'Custom') {
-            return;
-        }
+    const insertVariable = useCallback(
+        (variable: string) => {
+            if (currentPreset !== 'Custom') {
+                return;
+            }
 
-        const textarea = textareaRef.current;
+            const textarea = textareaRef.current;
 
-        if (!textarea) {
-            return;
-        }
+            if (!textarea) {
+                return;
+            }
 
-        const start = textarea.selectionStart;
-        const end = textarea.selectionEnd;
-        const text = templateMessage;
-        const before = text.substring(0, start);
-        const after = text.substring(end);
+            const start = textarea.selectionStart;
+            const end = textarea.selectionEnd;
+            const text = templateMessage;
+            const before = text.substring(0, start);
+            const after = text.substring(end);
 
-        const newMessage = before + variable + after;
-        setTemplateMessage(newMessage);
-        setCustomMessage(newMessage);
+            const newMessage = before + variable + after;
+            setTemplateMessage(newMessage);
+            setCustomMessage(newMessage);
 
-        // Reset focus and cursor
-        setTimeout(() => {
-            textarea.focus();
-            textarea.setSelectionRange(
-                start + variable.length,
-                start + variable.length,
-            );
-        }, 0);
-    };
+            // Reset focus and cursor
+            setTimeout(() => {
+                textarea.focus();
+                textarea.setSelectionRange(
+                    start + variable.length,
+                    start + variable.length,
+                );
+            }, 0);
+        },
+        [currentPreset, templateMessage],
+    );
 
-    const applyPreset = (val: PresetKey) => {
-        if (val === 'Custom') {
-            setTemplateMessage(customMessage || templateMessage);
-        } else {
-            setTemplateMessage(PRESETS[val]);
-        }
+    const applyPreset = useCallback(
+        (val: PresetKey) => {
+            if (val === 'Custom') {
+                setTemplateMessage(customMessage || templateMessage);
+            } else {
+                setTemplateMessage(PRESETS[val as keyof typeof PRESETS]);
+            }
 
-        setCurrentPreset(val);
-    };
+            setCurrentPreset(val);
+        },
+        [customMessage, templateMessage],
+    );
 
-    const handleTerapkan = () => {
+    const handleTerapkan = useCallback(() => {
         if (currentPreset === 'Custom') {
             setCustomMessage(templateMessage);
         }
 
         setIsModalOpen(false);
-    };
+    }, [currentPreset, templateMessage]);
 
     return (
         <div className="flex min-h-screen items-center justify-center bg-gray-50 p-4">
@@ -493,12 +507,7 @@ export default function Invite() {
                                 <Label>Preview</Label>
                                 <Textarea
                                     readOnly
-                                    value={renderMessage(
-                                        templateMessage,
-                                        guestName,
-                                        generatedUrl ||
-                                            'https://link-undangan.com/?to=NamaTamu',
-                                    )}
+                                    value={previewMessage}
                                     className="h-50 bg-gray-50 text-sm"
                                 />
                             </div>
