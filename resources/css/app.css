@@ -103,9 +103,9 @@
     --sidebar-border: oklch(0.922 0 0);
     --sidebar-ring: oklch(0.87 0 0);
 
-    --navy: #1B2F5A;
-    --peach: #FFF4EC;
-    --sky: #8FD8F8;
+    --navy: oklch(0.3135 0.0813 263.62);
+    --peach: oklch(0.9736 0.015952 58.6413);
+    --sky: oklch(0.8456 0.0852 227.47);
 }
 
 @layer base {
