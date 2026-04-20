@@ -59,7 +59,7 @@ export default function Wishes({ wishes }: WishesProps) {
                             placeholder="Ucapan..."
                             value={data.message}
                             onChange={(e) => setData('message', e.target.value)}
-                            className="h-20 w-full rounded-md bg-white p-2 font-belleza text-xs text-navy placeholder:font-belleza placeholder:text-xs placeholder:text-navy/20 focus:ring-2 focus:ring-peach focus:ring-offset-2 focus:outline-none"
+                            className="h-20 w-full resize-none rounded-md bg-white p-2 font-belleza text-xs text-navy placeholder:font-belleza placeholder:text-xs placeholder:text-navy/20 focus:ring-2 focus:ring-peach focus:ring-offset-2 focus:outline-none"
                         />
                         {errors.message && (
                             <p className="mt-1 font-belleza text-[10px] text-red-400">
