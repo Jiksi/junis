@@ -19,4 +19,11 @@ class WishController extends Controller
 
         return back();
     }
+
+    public function destroy(Wish $wish): RedirectResponse
+    {
+        $wish->delete();
+
+        return back();
+    }
 }

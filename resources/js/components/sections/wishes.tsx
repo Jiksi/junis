@@ -1,4 +1,5 @@
-import { useForm } from '@inertiajs/react';
+import { useForm, router } from '@inertiajs/react';
+import { Trash2 } from 'lucide-react';
 import { formatRelativeTime } from '@/lib/utils';
 import type { Wish } from '@/types';
 import Flower from '../flower';
@@ -9,7 +10,9 @@ interface WishesProps {
 }
 
 export default function Wishes({ wishes }: WishesProps) {
-    const to = new URLSearchParams(window.location.search).get('to');
+    const searchParams = new URLSearchParams(window.location.search);
+    const to = searchParams.get('to');
+    const isDeleteMode = searchParams.has('delete');
 
     const { data, setData, post, processing, reset, errors } = useForm({
         name: to || '',
@@ -21,6 +24,12 @@ export default function Wishes({ wishes }: WishesProps) {
         post('/wishes', {
             onSuccess: () => reset('message'),
         });
+    };
+
+    const handleDelete = (id: number) => {
+        if (confirm('Yakin ingin menghapus ucapan ini?')) {
+            router.delete(`/wishes/${id}`);
+        }
     };
 
     return (
@@ -81,26 +90,32 @@ export default function Wishes({ wishes }: WishesProps) {
                     {wishes.map((wish) => (
                         <div
                             key={wish.id}
-                            className="rounded-lg bg-white/5 p-3 backdrop-blur-sm"
+                            className="relative rounded-lg bg-white/5 p-3 backdrop-blur-sm"
                         >
                             <div className="flex items-start justify-between gap-2">
                                 <h3 className="font-belleza text-sm font-bold text-peach">
                                     {wish.name}
                                 </h3>
-                                <span className="font-belleza text-[10px] text-peach/60 italic">
-                                    {formatRelativeTime(wish.created_at)}
-                                </span>
+
+                                {isDeleteMode ? (
+                                    <button
+                                        onClick={() => handleDelete(wish.id)}
+                                        className="p-1 text-red-400 transition-colors hover:text-red-300"
+                                        title="Hapus Ucapan"
+                                    >
+                                        <Trash2 className="size-4" />
+                                    </button>
+                                ) : (
+                                    <span className="font-belleza text-[10px] text-peach/60 italic">
+                                        {formatRelativeTime(wish.created_at)}
+                                    </span>
+                                )}
                             </div>
                             <p className="mt-1 font-belleza text-xs leading-relaxed text-peach/90">
                                 {wish.message}
                             </p>
                         </div>
                     ))}
-                    {wishes.length === 0 && (
-                        <p className="text-center font-belleza text-xs text-peach/60 italic">
-                            Belum ada ucapan. Jadilah yang pertama!
-                        </p>
-                    )}
                 </div>
             </div>
             <Navigation />

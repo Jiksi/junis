@@ -7,11 +7,12 @@ use Inertia\Inertia;
 
 Route::get('/', function () {
     return Inertia::render('home', [
-        'wishes' => Wish::latest()->get(),
+        'wishes' => Inertia::scroll(fn () => Wish::latest()->paginate()),
     ]);
 })->name('home');
 
 Route::post('/wishes', [WishController::class, 'store'])->name('wishes.store');
+Route::delete('/wishes/{wish}', [WishController::class, 'destroy'])->name('wishes.destroy');
 
 Route::inertia('invite', 'invite')->name('invite');
 Route::inertia('wa', 'wa')->name('wa');
