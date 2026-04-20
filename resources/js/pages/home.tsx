@@ -13,9 +13,13 @@ import {
     useNavigation,
 } from '@/contexts/navigation-context';
 
-import type { Section } from '@/types';
+import type { Section, Wish } from '@/types';
 
-function HomeContent() {
+interface HomeProps {
+    wishes: Wish[];
+}
+
+function HomeContent({ wishes }: HomeProps) {
     const { section } = useNavigation();
 
     const content: Record<Section, React.ReactNode> = {
@@ -23,7 +27,7 @@ function HomeContent() {
         intro: <Intro />,
         couple: <Couple />,
         event: <Event />,
-        wishes: <Wishes />,
+        wishes: <Wishes wishes={wishes} />,
         gift: <Gift />,
         closing: <Closing />,
     };
@@ -44,10 +48,10 @@ function HomeContent() {
     );
 }
 
-export default function Home() {
+export default function Home({ wishes }: HomeProps) {
     return (
         <NavigationProvider>
-            <HomeContent />
+            <HomeContent wishes={wishes} />
         </NavigationProvider>
     );
 }

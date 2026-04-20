@@ -6,3 +6,10 @@ export type Section =
     | 'wishes'
     | 'gift'
     | 'closing';
+
+export interface Wish {
+    id: number;
+    name: string;
+    message: string;
+    created_at: string;
+}
