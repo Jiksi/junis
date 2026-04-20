@@ -1,12 +1,12 @@
-import { useForm, router } from '@inertiajs/react';
+import { useForm, router, InfiniteScroll } from '@inertiajs/react';
 import { Trash2 } from 'lucide-react';
 import { formatRelativeTime } from '@/lib/utils';
-import type { Wish } from '@/types';
+import type { Wish, Paginated } from '@/types';
 import Flower from '../flower';
 import Navigation from '../navigation';
 
 interface WishesProps {
-    wishes: Wish[];
+    wishes: Paginated<Wish>;
 }
 
 export default function Wishes({ wishes }: WishesProps) {
@@ -35,7 +35,7 @@ export default function Wishes({ wishes }: WishesProps) {
     return (
         <section className="flex h-full flex-col items-center justify-between bg-navy text-peach">
             <Flower />
-            <div className="flex w-full flex-1 flex-col items-center gap-4 overflow-hidden py-10">
+            <div className="flex w-full flex-1 flex-col items-center gap-4 overflow-hidden pt-10 pb-5">
                 <h2 className="text-center font-belleza text-xl leading-8 text-balance">
                     Greetings & Wishes
                 </h2>
@@ -86,36 +86,41 @@ export default function Wishes({ wishes }: WishesProps) {
                     </button>
                 </form>
 
-                <div className="scrollbar-hide flex w-full max-w-xs flex-1 flex-col gap-3 overflow-y-auto">
-                    {wishes.map((wish) => (
-                        <div
-                            key={wish.id}
-                            className="relative rounded-lg bg-white/5 p-3 backdrop-blur-sm"
-                        >
-                            <div className="flex items-start justify-between gap-2">
-                                <h3 className="font-belleza text-sm font-bold text-peach">
-                                    {wish.name}
-                                </h3>
-
-                                {isDeleteMode ? (
-                                    <button
-                                        onClick={() => handleDelete(wish.id)}
-                                        className="p-1 text-red-400 transition-colors hover:text-red-300"
-                                        title="Hapus Ucapan"
-                                    >
-                                        <Trash2 className="size-4" />
-                                    </button>
-                                ) : (
-                                    <span className="font-belleza text-[10px] text-peach/60 italic">
-                                        {formatRelativeTime(wish.created_at)}
-                                    </span>
-                                )}
+                <div className="scrollbar-hide flex w-full max-w-xs flex-1 flex-col overflow-y-auto pb-4">
+                    <InfiniteScroll data="wishes">
+                        {wishes.data.map((wish) => (
+                            <div
+                                key={wish.id}
+                                className="relative mb-3 rounded-lg bg-white/5 p-3 backdrop-blur-sm"
+                            >
+                                <div className="flex items-start justify-between gap-2">
+                                    <h3 className="font-belleza text-sm font-bold text-peach">
+                                        {wish.name}
+                                    </h3>
+                                    {isDeleteMode ? (
+                                        <button
+                                            onClick={() =>
+                                                handleDelete(wish.id)
+                                            }
+                                            className="p-1 text-red-400 transition-colors hover:text-red-300"
+                                            title="Hapus Ucapan"
+                                        >
+                                            <Trash2 className="size-4" />
+                                        </button>
+                                    ) : (
+                                        <span className="font-belleza text-[10px] text-peach/60 italic">
+                                            {formatRelativeTime(
+                                                wish.created_at,
+                                            )}
+                                        </span>
+                                    )}
+                                </div>
+                                <p className="mt-1 font-belleza text-xs leading-relaxed text-peach/90">
+                                    {wish.message}
+                                </p>
                             </div>
-                            <p className="mt-1 font-belleza text-xs leading-relaxed text-peach/90">
-                                {wish.message}
-                            </p>
-                        </div>
-                    ))}
+                        ))}
+                    </InfiniteScroll>
                 </div>
             </div>
             <Navigation />

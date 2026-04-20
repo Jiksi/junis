@@ -13,10 +13,10 @@ import {
     useNavigation,
 } from '@/contexts/navigation-context';
 
-import type { Section, Wish } from '@/types';
+import type { Section, Wish, Paginated } from '@/types';
 
 interface HomeProps {
-    wishes: Wish[];
+    wishes: Paginated<Wish>;
 }
 
 function HomeContent({ wishes }: HomeProps) {
