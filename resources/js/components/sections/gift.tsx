@@ -60,7 +60,7 @@ export default function Gift() {
                                     <h2>Noor Hijriyati Shofiana</h2>
                                 </div>
                                 <button
-                                    className="flex min-w-20 items-center justify-center gap-2 rounded-md border-2 bg-navy px-3 py-1 font-belleza text-xs text-peach focus:ring-2 focus:ring-offset-2 focus:outline-none"
+                                    className="flex min-w-20 items-center justify-center gap-2 rounded-md bg-navy px-4 py-2 font-belleza text-xs text-peach focus:ring-2 focus:ring-offset-2 focus:outline-none"
                                     onClick={handleCopy}
                                 >
                                     <AnimatePresence mode="wait">
@@ -101,7 +101,7 @@ export default function Gift() {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-                                    <button className="flex items-center gap-2 rounded-md border-2 bg-navy px-3 py-1 font-belleza text-xs text-peach focus:ring-2 focus:ring-offset-2 focus:outline-none">
+                                    <button className="flex items-center gap-2 rounded-md bg-navy px-4 py-2 font-belleza text-xs text-peach focus:ring-2 focus:ring-offset-2 focus:outline-none">
                                         <img
                                             src="/svg/gift.svg"
                                             alt="Gift"
