@@ -37,7 +37,7 @@ export default function Opening() {
                 transition={{ duration: 1.2, ease: 'easeOut' }}
             >
                 <p className="text-center font-belleza text-lg">Kepada yth</p>
-                <p className="text-center font-belleza text-3xl">
+                <p className="text-center font-belleza text-2xl">
                     {to || 'Tamu Undangan'}
                 </p>
             </motion.div>
