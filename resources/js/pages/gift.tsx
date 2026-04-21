@@ -8,13 +8,13 @@ export default function Gift() {
                 <Link href="/">
                     <Flower />
                 </Link>
-                <div className="flex h-full flex-col items-center justify-between py-10">
+                <div className="flex h-full flex-col items-center justify-center gap-5">
                     <h2 className="text-center font-gelasio text-2xl/7">
                         Welcome to
                         <br />
                         our wedding registry!
                     </h2>
-                    <div className="space-y-2 text-center font-belleza text-base text-balance">
+                    <div className="space-y-2 text-center font-belleza text-sm text-balance">
                         <p>
                             Halo semuanya, terima kasih sudah berkenan mampir ke
                             link ini dengan niat baik memberi hadiah kepada
