@@ -14,7 +14,7 @@ export default function Gift() {
                         <br />
                         our wedding registry!
                     </h2>
-                    <div className="space-y-2 text-center font-belleza text-sm text-balance">
+                    <div className="space-y-2 text-center font-belleza text-base text-balance">
                         <p>
                             Halo semuanya, terima kasih sudah berkenan mampir ke
                             link ini dengan niat baik memberi hadiah kepada
