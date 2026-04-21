@@ -8,10 +8,7 @@ import Intro from '@/components/sections/intro';
 import Opening from '@/components/sections/opening';
 import Wishes from '@/components/sections/wishes';
 
-import {
-    NavigationProvider,
-    useNavigation,
-} from '@/contexts/navigation-context';
+import { useNavigation } from '@/contexts/navigation-context';
 
 import type { Section, Wish, Paginated } from '@/types';
 
@@ -19,7 +16,7 @@ interface HomeProps {
     wishes: Paginated<Wish>;
 }
 
-function HomeContent({ wishes }: HomeProps) {
+export default function Home({ wishes }: HomeProps) {
     const { section } = useNavigation();
 
     const content: Record<Section, React.ReactNode> = {
@@ -45,13 +42,5 @@ function HomeContent({ wishes }: HomeProps) {
                 </motion.div>
             </AnimatePresence>
         </main>
-    );
-}
-
-export default function Home({ wishes }: HomeProps) {
-    return (
-        <NavigationProvider>
-            <HomeContent wishes={wishes} />
-        </NavigationProvider>
     );
 }
