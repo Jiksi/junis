@@ -16,4 +16,4 @@ Route::delete('/wishes/{wish}', [WishController::class, 'destroy'])->name('wishe
 
 Route::inertia('invite', 'invite')->name('invite');
 Route::inertia('wa', 'wa')->name('wa');
-Route::inertia('gift', 'gift')->name('gift');
+Route::inertia('gifts', 'gift')->name('gift');
