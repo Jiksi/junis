@@ -13,7 +13,7 @@ export default function Navigation({ navy = false }: { navy?: boolean }) {
     const { section, setSection } = useNavigation();
 
     return (
-        <nav className="flex w-xs items-center justify-between">
+        <nav className="flex w-2xs items-center justify-between">
             {items.map((item) => {
                 const isActive = section === item.value;
 
