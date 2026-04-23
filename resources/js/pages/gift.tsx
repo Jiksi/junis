@@ -1,13 +1,10 @@
-import { Link } from '@inertiajs/react';
 import Flower from '@/components/flower';
 
 export default function Gift() {
     return (
         <main className="relative overflow-hidden bg-[oklch(91.26%_0.037_225.01)] text-navy *:h-dvh *:py-14">
             <section className="mx-auto flex h-full w-sm flex-col items-center justify-between px-4">
-                <Link href="/">
-                    <Flower />
-                </Link>
+                <Flower disabled />
                 <div className="flex h-full flex-col items-center justify-center gap-5">
                     <h2 className="text-center font-gelasio text-2xl/7">
                         Welcome to
