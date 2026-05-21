@@ -16,7 +16,7 @@ export default function Couple() {
                         dan Ibu dr. Syafa&rsquo;ah H. Maksum, M.Kes
                     </p>
                 </div>
-                <span className="font-gelasio text-6xl">&</span>
+                <span className="font-belleza text-8xl">&</span>
                 <div className="flex flex-col items-center justify-center">
                     <p className="pb-2 font-gelasio text-xl">
                         An Nahl Akmal Hakim, MSM
