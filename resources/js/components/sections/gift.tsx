@@ -1,4 +1,3 @@
-import { Link } from '@inertiajs/react';
 import { AnimatePresence, motion } from 'motion/react';
 import { useState } from 'react';
 import { useNavigation } from '@/contexts/navigation-context';
@@ -97,7 +96,7 @@ export default function Gift() {
                             <div className="w-full border-t border-navy"></div>
                             <div className="flex items-center justify-between pt-2">
                                 <h2>Wedding Gifts List</h2>
-                                <Link href="/gifts">
+                                <a href="/gifts" target="_blank">
                                     <button className="flex items-center gap-2 rounded-md bg-navy px-4 py-2 font-belleza text-xs text-peach focus:ring-2 focus:ring-offset-2 focus:outline-none">
                                         <img
                                             src="/svg/gift.svg"
@@ -107,7 +106,7 @@ export default function Gift() {
                                         />
                                         Click Me
                                     </button>
-                                </Link>
+                                </a>
                             </div>
                             <button
                                 className="absolute -top-2 -right-2 flex size-5 items-center justify-center rounded-full bg-navy text-peach"
