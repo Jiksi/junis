@@ -22,9 +22,9 @@ export default function Couple() {
                         An Nahl Akmal Hakim, MSM
                     </p>
                     <p className="text-center font-belleza text-xs">
-                        Putra dari Bapak Fahrianoor Rullah Hakim
+                        Putra dari Bapak Fahrianoor Rullah Hakim, ST
                         <br />
-                        dan Ibu Amalia Feritawati
+                        dan Ibu Amalia Feritawati, S.Pd
                     </p>
                 </div>
             </div>
