@@ -350,7 +350,7 @@ export default function Invite() {
                             <SelectTrigger id="version">
                                 <SelectValue placeholder="Pilih Versi" />
                             </SelectTrigger>
-                            <SelectContent>
+                            <SelectContent align="start">
                                 <SelectGroup>
                                     <SelectItem value="v1">
                                         Normal (Dengan Gelar)
@@ -448,7 +448,7 @@ export default function Invite() {
                                     <SelectTrigger>
                                         <SelectValue placeholder="Pilih Preset" />
                                     </SelectTrigger>
-                                    <SelectContent>
+                                    <SelectContent align="start">
                                         <SelectGroup>
                                             <SelectItem value="Default">
                                                 Default
