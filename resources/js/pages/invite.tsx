@@ -195,6 +195,7 @@ const renderMessage = (text: string, name: string, url: string) => {
 
 export default function Invite() {
     const [guestName, setGuestName] = useState('');
+    const [version, setVersion] = useState<'v1' | 'v2'>('v1');
     const [isGenerated, setIsGenerated] = useState(false);
     const [generatedUrl, setGeneratedUrl] = useState('');
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -220,10 +221,11 @@ export default function Invite() {
         }
 
         const encodedName = guestName.trim().replace(/\s+/g, '+');
-        const url = `${window.location.origin}/?to=${encodedName}`;
+        const path = version === 'v2' ? '/v2/' : '/';
+        const url = `${window.location.origin}${path}?to=${encodedName}`;
         setGeneratedUrl(url);
         setIsGenerated(true);
-    }, [guestName]);
+    }, [guestName, version]);
 
     const handleCopy = useCallback(() => {
         navigator.clipboard.writeText(generatedUrl);
@@ -335,6 +337,30 @@ export default function Invite() {
                             value={guestName}
                             onChange={(e) => setGuestName(e.target.value)}
                         />
+                    </div>
+
+                    <div className="space-y-2">
+                        <Label htmlFor="version">Versi Undangan :</Label>
+                        <Select
+                            value={version}
+                            onValueChange={(val) =>
+                                setVersion(val as 'v1' | 'v2')
+                            }
+                        >
+                            <SelectTrigger id="version">
+                                <SelectValue placeholder="Pilih Versi" />
+                            </SelectTrigger>
+                            <SelectContent>
+                                <SelectGroup>
+                                    <SelectItem value="v1">
+                                        Normal (Dengan Gelar)
+                                    </SelectItem>
+                                    <SelectItem value="v2">
+                                        V2 (Tanpa Gelar)
+                                    </SelectItem>
+                                </SelectGroup>
+                            </SelectContent>
+                        </Select>
                     </div>
 
                     <button

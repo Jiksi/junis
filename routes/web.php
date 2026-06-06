@@ -11,6 +11,12 @@ Route::get('/', function () {
     ]);
 })->name('home');
 
+Route::get('/v2/', function () {
+    return Inertia::render('home-v2', [
+        'wishes' => Inertia::scroll(fn () => Wish::latest()->paginate()),
+    ]);
+})->name('home.v2');
+
 Route::post('/wishes', [WishController::class, 'store'])->name('wishes.store');
 Route::delete('/wishes/{wish}', [WishController::class, 'destroy'])->name('wishes.destroy');
 
